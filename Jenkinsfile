@@ -1,12 +1,10 @@
 pipeline {
     agent {
         node {
-            label 'Built-In Node'
+            label 
         }
     }
     parameters {
-    	string(name: 'serverIP', defaultValue: 'None', description: 'Enter Server IP ')
-	string(name: 'servername', defaultValue: 'None', description: 'Enter Ansible slave name ')
 	password(name: 'dockerpass', description: 'Enter docker login password ')	    
     }
     stages {
