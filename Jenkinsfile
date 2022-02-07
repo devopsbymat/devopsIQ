@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'slave'
+            label 'Built-In Node'
         }
     }
     parameters {
