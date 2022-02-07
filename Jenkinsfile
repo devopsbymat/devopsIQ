@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'slave2'
+            label 'slave'
         }
     }
     parameters {
@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('SCM checkout'){
             steps {
-		git "https://github.com/vistasunil/devopsIQ.git"
+		git "https://github.com/devopsbymat/devopsIQ.git"
             }
 	}
 	stage('Remove dockers'){
@@ -22,13 +22,13 @@ pipeline {
 	}
 	stage('Build'){
 	    steps {
-		    sh "sudo docker build /home/ubuntu/jenkins/workspace/${JOB_NAME} -t vistasunil/devopsdemo"
+		    sh "sudo docker build /home/ubuntu/jenkins/workspace/${JOB_NAME} -t rganjaredocker/devops-ct"
 	   }
 	}
 	stage('Docker Push'){
 		steps {
-		    sh "sudo docker login --username vistasunil --password ${dockerpass}"
-                    sh "sudo docker push vistasunil/devopsdemo:latest"
+		    sh "sudo docker login --username rganjaredocker --password ${dockerpass}"
+                    sh "sudo docker push rganjaredocker/devops-ct:latest"
 	        }
 	}
 	stage('Configure servers with Docker and deploy website') {
