@@ -8,6 +8,7 @@ pipeline {
 	string(name: 'imageTag', defaultValue: 'latest', description: 'Enter Docker Image tag')
 	password(name: 'dockerpass', defaultValue: 'Rahul#143', description: 'Enter docker login password ')
 	string(name: 'targetserver', defaultValue: 'None', description: 'Enter Target server name ')
+	string(name: 'targetserverIP', defaultValue: 'None', description: 'Enter Target Server IP ')
     }
     stages {
         stage('SCM checkout'){
@@ -45,7 +46,7 @@ pipeline {
 		steps {
 			sh "sudo apt install python3-pip -y"
 			sh "pip3 install selenium"
-			sh "python3 selenium_test.py ${params.serverIP}"
+			sh "python3 selenium_test.py ${params.targetserverIP}"
 		}
 	}
     }
