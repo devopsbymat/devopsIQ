@@ -5,4 +5,4 @@ RUN apt-get update
 RUN apt-get -y install apache2
 ADD ./devopsIQ /var/www/html/devopsIQ
 ENTRYPOINT apachectl -D FOREGROUND
-ENV name Devops Tutorial
+
