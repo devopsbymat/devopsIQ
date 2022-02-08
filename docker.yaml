@@ -1,5 +1,5 @@
 ---
-- hosts: "{{hostname}}"
+- hosts: aws-servers
   become: true
   vars:
     - create_containers: 5
