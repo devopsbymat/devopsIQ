@@ -7,7 +7,7 @@ pipeline {
     parameters {
 	string(name: 'imageTag', defaultValue: 'latest', description: 'Enter Docker Image tag')
 	password(name: 'dockerpass', defaultValue: 'Rahul#143', description: 'Enter docker login password ')
-	string(name: 'target-server', defaultValue: 'None', description: 'Enter Target server name ')
+	string(name: 'targetserver', defaultValue: 'None', description: 'Enter Target server name ')
     }
     stages {
         stage('SCM checkout'){
@@ -33,7 +33,7 @@ pipeline {
 	}
 	stage('Configure servers with Docker and deploy website') {
             	steps {
-			sh 'ansible-playbook docker.yaml -e "hostname=${target-server}"'
+			sh 'ansible-playbook docker.yaml -e "hostname=${targetserver}"'
             	}
         }
 	stage('Install Chrome browser') {
