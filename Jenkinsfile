@@ -5,6 +5,7 @@ pipeline {
         }
     }
     parameters {
+	string(name: 'imageTag', defaultValue: 'latest', description: 'Enter Docker Image tag')
 	password(name: 'dockerpass', description: 'Enter docker login password ')	    
     }
     stages {
@@ -26,7 +27,7 @@ pipeline {
 	stage('Docker Push'){
 		steps {
 		    sh "sudo docker login --username rganjaredocker --password ${dockerpass}"
-                    sh "sudo docker push rganjaredocker/devops-ct:latest"
+                    sh "sudo docker push rganjaredocker/devops-ct:${imageTag}"
 	        }
 	}
 	stage('Configure servers with Docker and deploy website') {
