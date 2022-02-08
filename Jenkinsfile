@@ -8,7 +8,7 @@ pipeline {
 	string(name: 'imageTag', defaultValue: 'latest', description: 'Enter Docker Image tag')
 	password(name: 'dockerpass', defaultValue: 'Rahul#143', description: 'Enter docker login password ')
 	string(name: 'targetserver', defaultValue: 'j-slave2-CT', description: 'Enter Target server name ')
-	string(name: 'targetserverIP', defaultValue: '15.207.117.55', description: 'Enter Target Server IP ')
+	string(name: 'targetserverIP', defaultValue: '15.207.111.16', description: 'Enter Target Server IP ')
     }
     stages {
         stage('SCM checkout'){
@@ -25,7 +25,7 @@ pipeline {
 	    steps {
 		    sh "sudo docker build /home/ubuntu/workspace/${JOB_NAME} -t rganjaredocker/devops-ct:${imageTag}"
 	   }
-	}
+	}	
 	stage('Docker Push'){
 		steps {
 		    sh "sudo docker login --username rganjaredocker --password ${dockerpass}"
