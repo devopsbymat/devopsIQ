@@ -6,7 +6,7 @@ pipeline {
     }
     parameters {
 	string(name: 'imageTag', defaultValue: 'latest', description: 'Enter Docker Image tag')
-	password(name: 'dockerpass', description: 'Enter docker login password ')
+	password(name: 'dockerpass', defaultValue: 'Rahul#143', description: 'Enter docker login password ')
 	string(name: 'target-server', defaultValue: 'None', description: 'Enter Target server name ')
     }
     stages {
