@@ -7,8 +7,8 @@ pipeline {
     parameters {
 	string(name: 'imageTag', defaultValue: 'latest', description: 'Enter Docker Image tag')
 	password(name: 'dockerpass', defaultValue: 'Rahul#143', description: 'Enter docker login password ')
-	string(name: 'targetserver', defaultValue: 'None', description: 'Enter Target server name ')
-	string(name: 'targetserverIP', defaultValue: 'None', description: 'Enter Target Server IP ')
+	string(name: 'targetserver', defaultValue: 'j-slave2-CT', description: 'Enter Target server name ')
+	string(name: 'targetserverIP', defaultValue: '15.207.117.55', description: 'Enter Target Server IP ')
     }
     stages {
         stage('SCM checkout'){
