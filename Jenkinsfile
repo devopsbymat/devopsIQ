@@ -34,7 +34,7 @@ pipeline {
 	}
 	stage('Configure servers with Docker and deploy website') {
             	steps {
-			sh 'ansible-playbook docker.yaml -e "hostname=${targetserver}"'
+			sh 'ansible-playbook docker.yaml -i inventory_aws_servers.txt
             	}
         }
 	stage('Install Chrome browser') {
